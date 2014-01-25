@@ -1,0 +1,28 @@
+{
+  "name": "set-gravatar",
+  "version": "0.0.0",
+  "description": "Change Gravatar profile image from Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahmutov/set-gravatar.git"
+  },
+  "keywords": [
+    "gravatar",
+    "node",
+    "xmlrpc",
+    "change",
+    "user",
+    "profile",
+    "image"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/set-gravatar/issues"
+  },
+  "homepage": "https://github.com/bahmutov/set-gravatar"
+}
