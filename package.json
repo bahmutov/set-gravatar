@@ -24,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/bahmutov/set-gravatar/issues"
   },
-  "homepage": "https://github.com/bahmutov/set-gravatar"
+  "homepage": "https://github.com/bahmutov/set-gravatar",
+  "devDependencies": {
+    "gt": "~0.8.33"
+  },
+  "dependencies": {
+    "xmlrpc": "~1.2.0"
+  }
 }
