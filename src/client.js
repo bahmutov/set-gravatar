@@ -11,10 +11,6 @@ function initClient(email, password) {
   verify.unemptyString(email, 'missing process.env.GRAVATAR_USER');
   var hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex');
   verify.unemptyString(hash, 'could not generate hash from email ' + email);
-  console.json({
-    email: email,
-    hash: hash
-  });
 
   password = password || process.env.GRAVATAR_PASSWORD;
   verify.unemptyString(password, 'missing process.env.GRAVATAR_PASSWORD');
