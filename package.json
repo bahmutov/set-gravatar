@@ -38,6 +38,7 @@
     "xmlrpc": "~1.2.0",
     "check-types": "~1.1.1",
     "console.json": "~0.1.1",
-    "prompt": "~0.2.12"
+    "prompt": "~0.2.12",
+    "easy-table": "~0.2.0"
   }
 }

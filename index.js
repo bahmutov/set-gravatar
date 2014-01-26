@@ -31,11 +31,20 @@ prompt.get(schema, function (err, result) {
 
     client.userimages(function (err, images) {
       if (err) throw err;
+
+      var Table = require('easy-table');
+      var t = new Table();
+
       console.log('user images:');
       Object.keys(images).forEach(function (id) {
         var props = images[id];
-        console.log('id', id, 'url', props[1]);
+        var url = props[1];
+        verify.webUrl(url, 'could not get image url from ' + props);
+        t.cell('id', id);
+        t.cell('url', url);
+        t.newRow();
       });
+      console.log(t.toString());
     });
   });
 });
