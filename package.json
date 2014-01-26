@@ -35,6 +35,7 @@
     "pre-git": "0.0.15"
   },
   "dependencies": {
-    "xmlrpc": "~1.2.0"
+    "xmlrpc": "~1.2.0",
+    "check-types": "~1.1.1"
   }
 }
