@@ -35,6 +35,10 @@ function initClient() {
     client.methodCall('grav.addresses', [{ password: password }], cb);
   };
 
+  client.userimages = function (cb) {
+    client.methodCall('grav.userimages', [{ password: password }], cb);
+  };
+
   return client;
 }
 
