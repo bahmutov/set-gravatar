@@ -13,7 +13,7 @@ gt.module('gravatar api access', {
 var delay = 15000;
 
 gt.async('test', function () {
-  gt.func(client.test);
+  verify.fn(client.test);
   client.test(function (error, value) {
     if (error) throw error;
     gt.ok(value, 'a value is returned');
@@ -22,7 +22,7 @@ gt.async('test', function () {
 }, delay);
 
 gt.async('addresses', function () {
-  gt.func(client.addresses);
+  verify.fn(client.addresses);
   client.addresses(function (error, addresses) {
     if (error) throw error;
     // console.json(addresses);
@@ -33,12 +33,39 @@ gt.async('addresses', function () {
 }, delay);
 
 gt.async('userimages', function () {
-  gt.func(client.userimages);
+  verify.fn(client.userimages);
   client.userimages(function (error, images) {
     if (error) throw error;
     console.json(images);
     gt.object(images, 'list of images is an object');
     gt.ok(Object.keys(images).length > 0, 'there are several images');
     gt.start();
+  });
+}, delay);
+
+gt.async('useUserimage', function () {
+  verify.fn(client.useUserimage);
+
+  client.addresses(function (error, addresses) {
+    var as = Object.keys(addresses);
+    gt.ok(as.length > 0, 'addresses has no keys');
+
+    client.userimages(function (error, images) {
+      var is = Object.keys(images);
+      gt.ok(is.length > 0, 'user images has not values');
+      var image = is[0];
+      var url = images[image][1];
+      verify.webUrl(url, 'could not get image url by id ' + image);
+      console.json('setting user image', { id: image, url: url });
+      client.useUserimage(image, as, function (error, results) {
+        if (error) throw error;
+        console.log('results', results);
+        gt.object(results, 'results is an object');
+        Object.keys(results).forEach(function (email) {
+          gt.ok(results[email], 'could not set image for email', email);
+        });
+        gt.start();
+      });
+    })
   });
 }, delay);

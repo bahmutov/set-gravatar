@@ -28,15 +28,31 @@ function initClient() {
 
   // add a couple of methods specific to gravatar api
   client.test = function (cb) {
+    verify.fn(cb, 'missing callback function');
     client.methodCall('grav.test', [{ password: password }], cb);
   };
 
   client.addresses = function (cb) {
+    verify.fn(cb, 'missing callback function');
     client.methodCall('grav.addresses', [{ password: password }], cb);
   };
 
   client.userimages = function (cb) {
+    verify.fn(cb, 'missing callback function');
     client.methodCall('grav.userimages', [{ password: password }], cb);
+  };
+
+  client.useUserimage = function (userimage, addresses, cb) {
+    verify.unemptyString(userimage, 'missing userimage string, get it by .userimages call');
+    verify.array(addresses, 'missing addresses array, get by .addresses call');
+    verify.fn(cb, 'missing callback function');
+    console.log('setting image', userimage, 'for addresses', addresses);
+    var args = {
+      password: password,
+      userimage: userimage,
+      addresses: addresses
+    };
+    client.methodCall('grav.useUserimage', [args], cb);
   };
 
   return client;
