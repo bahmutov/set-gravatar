@@ -37,8 +37,8 @@ gt.async('userimages', function () {
   client.userimages(function (error, images) {
     if (error) throw error;
     console.json(images);
-    // gt.object(addresses, 'list of addresses is an object');
-    // gt.ok(Object.keys(addresses).length > 0, 'there are several addresses');
+    gt.object(images, 'list of images is an object');
+    gt.ok(Object.keys(images).length > 0, 'there are several images');
     gt.start();
   });
 }, delay);
