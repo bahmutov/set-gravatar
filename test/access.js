@@ -1,11 +1,14 @@
 var verify = require('check-types').verify;
 require('console.json');
 
+var initClient = require('../index');
+verify.fn(initClient, 'expected init function');
+
 var client;
 
 gt.module('gravatar api access', {
   setupOnce: function () {
-    client = require('../src/client')();
+    client = initClient();
     verify.object(client, 'could not initialize client');
   }
 });
