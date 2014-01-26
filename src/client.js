@@ -7,13 +7,11 @@ var xmlrpc = require('xmlrpc');
 function initClient(email, password) {
   var client;
 
-  email = email || process.env.GRAVATAR_EMAIL;
-  verify.unemptyString(email, 'missing process.env.GRAVATAR_USER');
+  verify.unemptyString(email, 'missing email');
   var hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex');
   verify.unemptyString(hash, 'could not generate hash from email ' + email);
 
-  password = password || process.env.GRAVATAR_PASSWORD;
-  verify.unemptyString(password, 'missing process.env.GRAVATAR_PASSWORD');
+  verify.unemptyString(password, 'missing password');
 
   var secureClientOptions = {
     host: 'secure.gravatar.com',
@@ -54,4 +52,15 @@ function initClient(email, password) {
   return client;
 }
 
-module.exports = initClient;
+module.exports = function (email, password) {
+  if (!email) {
+    email = process.env.GRAVATAR_EMAIL;
+    verify.unemptyString(email, 'missing process.env.GRAVATAR_USER');
+  }
+  if (!password) {
+    password = process.env.GRAVATAR_PASSWORD;
+    verify.unemptyString(password, 'missing process.env.GRAVATAR_PASSWORD');
+  }
+
+  return initClient(email, password);
+};
