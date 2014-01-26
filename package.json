@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "xmlrpc": "~1.2.0",
-    "check-types": "~1.1.1"
+    "check-types": "~1.1.1",
+    "console.json": "~0.1.1"
   }
 }
