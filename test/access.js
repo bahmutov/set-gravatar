@@ -5,7 +5,7 @@ var client;
 
 gt.module('gravatar api access', {
   setupOnce: function () {
-    client = require('../src/client');
+    client = require('../src/client')();
     verify.object(client, 'could not initialize client');
   }
 });

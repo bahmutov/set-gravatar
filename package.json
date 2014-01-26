@@ -4,7 +4,7 @@
   "description": "Change Gravatar profile image from Nodejs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
   "dependencies": {
     "xmlrpc": "~1.2.0",
     "check-types": "~1.1.1",
-    "console.json": "~0.1.1"
+    "console.json": "~0.1.1",
+    "prompt": "~0.2.12"
   }
 }

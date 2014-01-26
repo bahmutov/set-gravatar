@@ -4,10 +4,10 @@ var verify = require('check-types').verify;
 var crypto = require('crypto');
 var xmlrpc = require('xmlrpc');
 
-function initClient() {
+function initClient(email, password) {
   var client;
 
-  var email = process.env.GRAVATAR_EMAIL;
+  email = email || process.env.GRAVATAR_EMAIL;
   verify.unemptyString(email, 'missing process.env.GRAVATAR_USER');
   var hash = crypto.createHash('md5').update(email.toLowerCase().trim()).digest('hex');
   verify.unemptyString(hash, 'could not generate hash from email ' + email);
@@ -16,7 +16,7 @@ function initClient() {
     hash: hash
   });
 
-  var password = process.env.GRAVATAR_PASSWORD;
+  password = password || process.env.GRAVATAR_PASSWORD;
   verify.unemptyString(password, 'missing process.env.GRAVATAR_PASSWORD');
 
   var secureClientOptions = {
@@ -58,4 +58,4 @@ function initClient() {
   return client;
 }
 
-module.exports = initClient();
+module.exports = initClient;
