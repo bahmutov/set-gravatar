@@ -1,4 +1,4 @@
-# set-gravatar v0.0.0
+# set-gravatar v0.0.1
 
 > Change Gravatar profile image from Nodejs
 

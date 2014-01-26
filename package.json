@@ -1,6 +1,6 @@
 {
   "name": "set-gravatar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Change Gravatar profile image from Nodejs",
   "main": "index.js",
   "scripts": {
