@@ -66,6 +66,6 @@ gt.async('useUserimage', function () {
         });
         gt.start();
       });
-    })
+    });
   });
 }, delay);
