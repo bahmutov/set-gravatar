@@ -15,6 +15,13 @@ gt.module('gravatar api access', {
 
 var delay = 15000;
 
+gt.test('user pic url', function () {
+  verify.fn(client.imageUrl, 'imageUrl');
+  var url = client.imageUrl();
+  console.log('client avatar url', url);
+  verify.webUrl(url, 'avatar url');
+});
+
 gt.async('test', function () {
   verify.fn(client.test);
   client.test(function (error, value) {

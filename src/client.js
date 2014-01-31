@@ -21,6 +21,10 @@ function initClient(email, password) {
   client = xmlrpc.createSecureClient(secureClientOptions);
 
   // add a couple of methods specific to gravatar api
+  client.imageUrl = function() {
+    return 'http://www.gravatar.com/avatar/' + hash;
+  };
+
   client.test = function (cb) {
     verify.fn(cb, 'missing callback function');
     client.methodCall('grav.test', [{ password: password }], cb);
